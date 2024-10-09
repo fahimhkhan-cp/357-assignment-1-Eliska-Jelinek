@@ -26,6 +26,7 @@ int main(int argc, char *argv[]) {
         }
         
         // Update previous line with copy of current line
+        free(prev_line);
         prev_line = strdup(line);
     }
     free(prev_line);
