@@ -28,6 +28,8 @@ int main(int argc, char *argv[]) {
         // Update previous line with copy of current line
         prev_line = strdup(line);
     }
+    free(prev_line);
+    free(line);
 
     fclose(file);
 
