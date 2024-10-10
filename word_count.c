@@ -1,22 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include "helper.h"
 
 int main(int argc, char* argv[]) {
 	// Open input file for reading
-  // Default to reading from stdin
-  FILE *sourcefile = stdin;
-  // Update sourcefile if one is provided
-  if (argc == 2) {
-    sourcefile = fopen(argv[1], "r");
-    // Error if given file doesn't exist
-    if (sourcefile == NULL) {
-      perror("Source file does not exist");
-      // Return to end execution
-      return 1;
-    }
-  }
-
+  FILE *sourcefile = open_input(argc, argv);
 
 	// Initialize counting variables
   int chr_count = 0;
@@ -58,17 +47,8 @@ int main(int argc, char* argv[]) {
   // Print results to terminal
   printf("\nCharacter count: %d\nWord count: %d\nLine count: %d\n", chr_count,word_count,line_count);
 
-  // // Free all variables
-  // free(chr_count);
-  // free(word_count);
-  // free(line_count);
-  // free(prev_space);
-  // free(ch);
-
   // Close file
-  if (sourcefile != stdin) {
-    fclose(sourcefile);
-  }
+  close_file(sourcefile);
   
   // Filler return statement
   return 0;
