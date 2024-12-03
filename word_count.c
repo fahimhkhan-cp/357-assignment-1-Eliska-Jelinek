@@ -10,7 +10,7 @@ int main(int argc, char* argv[]) {
 	// Initialize counting variables
   int chr_count = 0;
   int word_count = 1; // Starts at 1 to include very first word
-  int line_count = 1; // ^^
+  int line_count = 0; // ^^
 
   // Initialize loop variables
 	int ch;
